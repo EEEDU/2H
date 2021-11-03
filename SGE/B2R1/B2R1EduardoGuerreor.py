@@ -1,11 +1,12 @@
 seguir = True
 
 while seguir:
+    archivo = input("Dime la ubicacion del archivo: ")
     palabra = input("Dime una palabra: ")
     lineaPalbra = []
     datos = []
     datosSeparados = []
-    with open("archivo.txt") as fname:
+    with open(archivo) as fname:
         lineas = fname.readlines()
         for linea in lineas:
             datos.append(linea.strip('\n'))
