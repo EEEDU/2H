@@ -1,47 +1,6 @@
 <odoo>
 
-
-    <record model="ir.actions.act_window" id="vets_list_action">
-        <field name="name">vets</field>
-        <field name="res_model">personas</field>
-        <field name="view_mode">tree,form</field>
-    </record>
-    <record model="ir.actions.act_window" id="duenos_list_action">
-        <field name="name">duenos</field>
-        <field name="res_model">duenos</field>
-        <field name="view_mode">tree,form,calendar</field>
-    </record>
-
-    <record model="ir.actions.act_window" id="perritos_list_action">
-        <field name="name">perrazos</field>
-        <field name="res_model">perritos</field>
-        <field name="view_mode">tree,form</field>
-    </record>
-
-    <record model="ir.actions.act_window" id="visit_list_action">
-        <field name="name">visit</field>
-        <field name="res_model">touring.visit</field>
-        <field name="view_mode">tree,form,calendar</field>
-    </record>
-    
-    <record model="ir.actions.act_window" id="provincia_list_action">
-        <field name="name">provincia</field>
-        <field name="res_model">touring.provincia</field>
-        <field name="view_mode">tree,form</field>
-    </record>
-    
-    <record model="ir.actions.act_window" id="poblacion_list_action">
-        <field name="name">poblacion</field>
-        <field name="res_model">touring.poblacion</field>
-        <field name="view_mode">tree,form</field>
-    </record>
-    
-    <record model="ir.actions.act_window" id="turist_list_action">
-        <field name="name">turist</field>
-        <field name="res_model">res.partner</field>
-        <field name="view_mode">tree,form</field>
-    </record>
-    
+    <!-- VISTAS DE TOURIST -->
     <record model="ir.ui.view" id="tourist_form_view">
         <field name="name">turist.form</field>
         <field name="model">res.partner</field>
@@ -56,45 +15,7 @@
                 </notebook>
             </field>
     </record>
-    
-    <record model="ir.actions.act_window" id="event_list_action">
-        <field name="name">eventos</field>
-        <field name="res_model">touring.event</field>
-        <field name="view_mode">tree,form</field>
-    </record>
-    
-    
 
-    <menuitem name="Club de Turismo" id="touring_menu_root"/>
-    
-    <menuitem name="Provincias" id="touring_menu_provincias" parent="touring_menu_root"/>
-    <menuitem name="Poblaciones" id="touring_menu_poblaciones" parent="touring_menu_root"/>
-    <menuitem name="Visitas" id="touring_menu_visit" parent="touring_menu_root"/>
-    <menuitem name="Turista" id="touring_menu_turist" parent="touring_menu_root"/>
-    <menuitem name="Eventos" id="touring_menu_event" parent="touring_menu_root"/>
-    <menuitem name="Perritos" id="touring_menu_perritos" parent="touring_menu_root"/>
-    <menuitem name="Duenos" id="touring_menu_duenos" parent="touring_menu_root"/>
-    <menuitem name="Vets" id="touring_menu_vets" parent="touring_menu_root"/>
-    
-
-    <menuitem name="listado de vets" id="touring_list_vets" parent="touring_menu_vets"
-              action="vets_list_action"/>
-    <menuitem name="listado de duenos" id="touring_list_duenos" parent="touring_menu_duenos"
-              action="duenos_list_action"/>
-    <menuitem name="listado de perritos" id="touring_list_perritos" parent="touring_menu_perritos"
-              action="perritos_list_action"/>
-    <menuitem name="listado de provincias" id="touring_list_provincias" parent="touring_menu_provincias"
-              action="provincia_list_action"/>
-    <menuitem name="listado de poblaciones" id="touring_list_poblaciones" parent="touring_menu_poblaciones"
-              action="poblacion_list_action"/>
-    <menuitem name="listado de visitas" id="touring_list_visit" parent="touring_menu_visit"
-              action="visit_list_action"/>
-    <menuitem name="listado de turista" id="touring_list_turist" parent="touring_menu_turist"
-              action="turist_list_action"/>
-    <menuitem name="listado de eventos" id="touring_list_event" parent="touring_menu_event"
-              action="event_list_action"/>
-    
-        
         <record model="ir.ui.view" id="visit_form_view">
             <field name="name">visit.form</field>
             <field name="model">touring.visit</field>
@@ -299,4 +220,86 @@
             </field>
         </record>
                   
+    <!-- DEFINICION DE MENUS -->
+    <!-- Actions -->
+
+    <record model="ir.actions.act_window" id="vets_list_action">
+        <field name="name">vets</field>
+        <field name="res_model">personas</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <record model="ir.actions.act_window" id="duenos_list_action">
+        <field name="name">duenos</field>
+        <field name="res_model">duenos</field>
+        <field name="view_mode">tree,form,calendar</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="perritos_list_action">
+        <field name="name">perrazos</field>
+        <field name="res_model">perritos</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="visit_list_action">
+        <field name="name">visit</field>
+        <field name="res_model">touring.visit</field>
+        <field name="view_mode">tree,form,calendar</field>
+    </record>
+    
+    <record model="ir.actions.act_window" id="provincia_list_action">
+        <field name="name">provincia</field>
+        <field name="res_model">touring.provincia</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+    <record model="ir.actions.act_window" id="poblacion_list_action">
+        <field name="name">poblacion</field>
+        <field name="res_model">touring.poblacion</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+    <record model="ir.actions.act_window" id="turist_list_action">
+        <field name="name">turist</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="event_list_action">
+        <field name="name">eventos</field>
+        <field name="res_model">touring.event</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Top menu item -->
+    <menuitem name="Club de Turismo" id="touring_menu_root"/>
+    
+    <!-- Menu categories -->
+    <menuitem name="Provincias" id="touring_menu_provincias" parent="touring_menu_root"/>
+    <menuitem name="Poblaciones" id="touring_menu_poblaciones" parent="touring_menu_root"/>
+    <menuitem name="Visitas" id="touring_menu_visit" parent="touring_menu_root"/>
+    <menuitem name="Turista" id="touring_menu_turist" parent="touring_menu_root"/>
+    <menuitem name="Eventos" id="touring_menu_event" parent="touring_menu_root"/>
+    <menuitem name="Perritos" id="touring_menu_perritos" parent="touring_menu_root"/>
+    <menuitem name="Duenos" id="touring_menu_duenos" parent="touring_menu_root"/>
+    <menuitem name="Vets" id="touring_menu_vets" parent="touring_menu_root"/>
+    
+
+    <menuitem name="listado de vets" id="touring_list_vets" parent="touring_menu_vets"
+              action="vets_list_action"/>
+    <menuitem name="listado de duenos" id="touring_list_duenos" parent="touring_menu_duenos"
+              action="duenos_list_action"/>
+    <menuitem name="listado de perritos" id="touring_list_perritos" parent="touring_menu_perritos"
+              action="perritos_list_action"/>
+    <menuitem name="listado de provincias" id="touring_list_provincias" parent="touring_menu_provincias"
+              action="provincia_list_action"/>
+    <menuitem name="listado de poblaciones" id="touring_list_poblaciones" parent="touring_menu_poblaciones"
+              action="poblacion_list_action"/>
+    <menuitem name="listado de visitas" id="touring_list_visit" parent="touring_menu_visit"
+              action="visit_list_action"/>
+    <menuitem name="listado de turista" id="touring_list_turist" parent="touring_menu_turist"
+              action="turist_list_action"/>
+    <menuitem name="listado de eventos" id="touring_list_event" parent="touring_menu_event"
+              action="event_list_action"/>
+    
+        
 </odoo>
