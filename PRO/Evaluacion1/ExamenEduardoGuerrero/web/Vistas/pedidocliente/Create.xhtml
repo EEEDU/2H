@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreatePedidoclienteTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreatePedidoclienteLabel_codPedidoCliente}" for="codPedidoCliente" />
+                    <h:inputText id="codPedidoCliente" value="#{pedidoclienteController.selected.codPedidoCliente}" title="#{bundle.CreatePedidoclienteTitle_codPedidoCliente}" required="true" requiredMessage="#{bundle.CreatePedidoclienteRequiredMessage_codPedidoCliente}"/>
+                    <h:outputLabel value="#{bundle.CreatePedidoclienteLabel_fecha}" for="fecha" />
+                    <p:calendar id="fecha" value="#{pedidoclienteController.selected.fecha}" title="#{bundle.CreatePedidoclienteTitle_fecha}" required="true" requiredMessage="#{bundle.CreatePedidoclienteRequiredMessage_fecha}">
+                        <f:convertDateTime pattern="dd/MM/yyyy" />
+                    </p:calendar>
+                    <h:outputLabel value="#{bundle.CreatePedidoclienteLabel_codCliente}" for="codCliente" />
+                    <h:selectOneMenu id="codCliente" value="#{pedidoclienteController.selected.codCliente}" title="#{bundle.CreatePedidoclienteTitle_codCliente}" required="true" requiredMessage="#{bundle.CreatePedidoclienteRequiredMessage_codCliente}">
+                        <f:selectItems value="#{clienteController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{pedidoclienteController.create}" value="#{bundle.CreatePedidoclienteSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{pedidoclienteController.prepareList}" value="#{bundle.CreatePedidoclienteShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreatePedidoclienteIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

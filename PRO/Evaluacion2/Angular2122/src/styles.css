@@ -1,0 +1,15 @@
+h1 {
+  color: #369;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 250%;
+}
+
+.negrita {
+    font-weight:bold;
+}
+.italica {
+    font-style:italic;
+}
+.color{
+    color:red;
+}

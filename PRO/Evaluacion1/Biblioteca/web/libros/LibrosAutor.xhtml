@@ -1,0 +1,63 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListLibrosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            
+            <h:form>
+                <p:toolbar style="margin-bottom: 10px; width: 69%; float: left">
+                    <f:facet name="left">
+                        <p:selectOneMenu id="unAutor" value="#{librosController.autor}" onchange="submit()" valueChangeListener="#{librosController.cargarLibrosAutores()}">
+                            <f:selectItems value="#{autoresController.itemsAvailableSelectOne}"/>
+                        </p:selectOneMenu>   
+                    </f:facet>
+                </p:toolbar>
+            </h:form>
+            
+            <h:form styleClass="jsfcrud_list_form">
+                  <p:dataTable var="libro" value="#{librosController.lista}" rows="5" style="width: 70%; float:left;"
+                             paginator="true"
+                             paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                             currentPageReportTemplate="{startRecord}-{endRecord} of {totalRecords} records"
+                             rowsPerPageTemplate="5,10,15">
+                    <p:column headerText="Nombre" sortBy="#{libro.nomLibro}" width="45">
+                        <h:outputText value="#{libro.nomLibro}" style="font-weight: bold; color:#01579B; font-size: 18px"/>
+                    </p:column>
+                    <p:column headerText="Año" width="45">
+                        <h:outputText value="#{libro.ano}" />
+                    </p:column>
+
+
+                        <p:column headerText="Portada" style= "text-align: center" width="45">
+                              <p:lightBox styleClass="imagebox" id="lightbox1">
+                                  <h:outputLink value="/Biblioteca2/faces/javax.faces.resources/#{libro.portada}?ln=portadas" title="#{libros.nomLibro} #{libros.ano}">
+                                      <h:graphicImage library="portadas" name="#{libro.portada}" height="45"/>                        
+                                  </h:outputLink>
+                              </p:lightBox>
+                          </p:column>
+                        
+                        
+                    </p:dataTable>
+
+                <p:galleria var="avestruz" value="#{librosController.lista}" showCaption="true" panelWidth="250" panelHeight="400" style="float:right; margin-right:70px">
+                    <p:graphicImage library="portadas" name="#{avestruz.portada}" title="#{avestruz.ano}"/>
+                </p:galleria>
+              
+                <p:dock position="bottom">
+                        <p:menuitem value="listado" icon="/resources/iconos/listado.png" url="List.xhtml"/>
+                        <p:menuitem value="inicio" icon="/resources/iconos/home.ico" outcome="/index"/>
+                </p:dock>
+                
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

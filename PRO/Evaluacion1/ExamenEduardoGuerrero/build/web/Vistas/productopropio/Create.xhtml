@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateProductopropioTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateProductopropioLabel_codProducto}" for="codProducto" />
+                    <h:inputText id="codProducto" value="#{productopropioController.selected.codProducto}" title="#{bundle.CreateProductopropioTitle_codProducto}" required="true" requiredMessage="#{bundle.CreateProductopropioRequiredMessage_codProducto}"/>
+                    <h:outputLabel value="#{bundle.CreateProductopropioLabel_denominacion}" for="denominacion" />
+                    <h:inputText id="denominacion" value="#{productopropioController.selected.denominacion}" title="#{bundle.CreateProductopropioTitle_denominacion}" required="true" requiredMessage="#{bundle.CreateProductopropioRequiredMessage_denominacion}"/>
+                    <h:outputLabel value="#{bundle.CreateProductopropioLabel_precio}" for="precio" />
+                    <h:inputText id="precio" value="#{productopropioController.selected.precio}" title="#{bundle.CreateProductopropioTitle_precio}" required="true" requiredMessage="#{bundle.CreateProductopropioRequiredMessage_precio}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{productopropioController.create}" value="#{bundle.CreateProductopropioSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{productopropioController.prepareList}" value="#{bundle.CreateProductopropioShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateProductopropioIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateComponeneteTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateComponeneteLabel_codComponente}" for="codComponente" />
+                    <h:inputText id="codComponente" value="#{componeneteController.selected.codComponente}" title="#{bundle.CreateComponeneteTitle_codComponente}" required="true" requiredMessage="#{bundle.CreateComponeneteRequiredMessage_codComponente}"/>
+                    <h:outputLabel value="#{bundle.CreateComponeneteLabel_descripcion}" for="descripcion" />
+                    <h:inputText id="descripcion" value="#{componeneteController.selected.descripcion}" title="#{bundle.CreateComponeneteTitle_descripcion}" required="true" requiredMessage="#{bundle.CreateComponeneteRequiredMessage_descripcion}"/>
+                    <h:outputLabel value="#{bundle.CreateComponeneteLabel_codMarca}" for="codMarca" />
+                    <h:selectOneMenu id="codMarca" value="#{componeneteController.selected.codMarca}" title="#{bundle.CreateComponeneteTitle_codMarca}" required="true" requiredMessage="#{bundle.CreateComponeneteRequiredMessage_codMarca}">
+                        <f:selectItems value="#{marcaController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{componeneteController.create}" value="#{bundle.CreateComponeneteSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{componeneteController.prepareList}" value="#{bundle.CreateComponeneteShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateComponeneteIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

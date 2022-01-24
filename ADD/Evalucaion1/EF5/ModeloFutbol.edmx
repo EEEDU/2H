@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="FutbolModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Equipos">
+          <Key>
+            <PropertyRef Name="equipoID" />
+          </Key>
+          <Property Name="equipoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nomEquipo" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="EquiposFutbolistas">
+          <Key>
+            <PropertyRef Name="equipoID" />
+            <PropertyRef Name="futbolistaID" />
+          </Key>
+          <Property Name="equipoID" Type="int" Nullable="false" />
+          <Property Name="futbolistaID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Futbolistas">
+          <Key>
+            <PropertyRef Name="futbolistaID" />
+          </Key>
+          <Property Name="futbolistaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nomFutbolista" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK__EquiposFu__equip__3B75D760">
+          <End Role="Equipos" Type="Self.Equipos" Multiplicity="1" />
+          <End Role="EquiposFutbolistas" Type="Self.EquiposFutbolistas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Equipos">
+              <PropertyRef Name="equipoID" />
+            </Principal>
+            <Dependent Role="EquiposFutbolistas">
+              <PropertyRef Name="equipoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__EquiposFu__futbo__3C69FB99">
+          <End Role="Futbolistas" Type="Self.Futbolistas" Multiplicity="1" />
+          <End Role="EquiposFutbolistas" Type="Self.EquiposFutbolistas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Futbolistas">
+              <PropertyRef Name="futbolistaID" />
+            </Principal>
+            <Dependent Role="EquiposFutbolistas">
+              <PropertyRef Name="futbolistaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="FutbolModelStoreContainer">
+          <EntitySet Name="Equipos" EntityType="Self.Equipos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EquiposFutbolistas" EntityType="Self.EquiposFutbolistas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Futbolistas" EntityType="Self.Futbolistas" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__EquiposFu__equip__3B75D760" Association="Self.FK__EquiposFu__equip__3B75D760">
+            <End Role="Equipos" EntitySet="Equipos" />
+            <End Role="EquiposFutbolistas" EntitySet="EquiposFutbolistas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__EquiposFu__futbo__3C69FB99" Association="Self.FK__EquiposFu__futbo__3C69FB99">
+            <End Role="Futbolistas" EntitySet="Futbolistas" />
+            <End Role="EquiposFutbolistas" EntitySet="EquiposFutbolistas" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="FutbolModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Equipo">
+          <Key>
+            <PropertyRef Name="equipoID" />
+          </Key>
+          <Property Name="equipoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nomEquipo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Futbolistas" Relationship="Self.EquiposFutbolistas" FromRole="Equipos" ToRole="Futbolistas" />
+        </EntityType>
+        <EntityType Name="Futbolista">
+          <Key>
+            <PropertyRef Name="futbolistaID" />
+          </Key>
+          <Property Name="futbolistaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nomFutbolista" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Equipos" Relationship="Self.EquiposFutbolistas" FromRole="Futbolistas" ToRole="Equipos" />
+        </EntityType>
+        <Association Name="EquiposFutbolistas">
+          <End Role="Equipos" Type="FutbolModel.Equipo" Multiplicity="*" />
+          <End Role="Futbolistas" Type="FutbolModel.Futbolista" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="Futbolin" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Equipos" EntityType="FutbolModel.Equipo" />
+          <EntitySet Name="Futbolistas" EntityType="FutbolModel.Futbolista" />
+          <AssociationSet Name="EquiposFutbolistas" Association="Self.EquiposFutbolistas">
+            <End Role="Equipos" EntitySet="Equipos" />
+            <End Role="Futbolistas" EntitySet="Futbolistas" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="FutbolModelStoreContainer" CdmEntityContainer="Futbolin">
+          <EntitySetMapping Name="Equipos">
+            <EntityTypeMapping TypeName="FutbolModel.Equipo">
+              <MappingFragment StoreEntitySet="Equipos">
+                <ScalarProperty Name="equipoID" ColumnName="equipoID" />
+                <ScalarProperty Name="nomEquipo" ColumnName="nomEquipo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Futbolistas">
+            <EntityTypeMapping TypeName="FutbolModel.Futbolista">
+              <MappingFragment StoreEntitySet="Futbolistas">
+                <ScalarProperty Name="futbolistaID" ColumnName="futbolistaID" />
+                <ScalarProperty Name="nomFutbolista" ColumnName="nomFutbolista" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="EquiposFutbolistas" TypeName="FutbolModel.EquiposFutbolistas" StoreEntitySet="EquiposFutbolistas">
+            <EndProperty Name="Equipos">
+              <ScalarProperty Name="equipoID" ColumnName="equipoID" />
+            </EndProperty>
+            <EndProperty Name="Futbolistas">
+              <ScalarProperty Name="futbolistaID" ColumnName="futbolistaID" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

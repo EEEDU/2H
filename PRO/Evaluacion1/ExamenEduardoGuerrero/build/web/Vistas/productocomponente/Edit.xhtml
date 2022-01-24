@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditProductocomponenteTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditProductocomponenteLabel_unidades}" for="unidades" />
+                    <h:inputText id="unidades" value="#{productocomponenteController.selected.unidades}" title="#{bundle.EditProductocomponenteTitle_unidades}" required="true" requiredMessage="#{bundle.EditProductocomponenteRequiredMessage_unidades}"/>
+                    <h:outputLabel value="#{bundle.EditProductocomponenteLabel_productopropio}" for="productopropio" />
+                    <h:selectOneMenu id="productopropio" value="#{productocomponenteController.selected.productopropio}" title="#{bundle.EditProductocomponenteTitle_productopropio}" required="true" requiredMessage="#{bundle.EditProductocomponenteRequiredMessage_productopropio}">
+                        <f:selectItems value="#{productopropioController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditProductocomponenteLabel_componente}" for="componente" />
+                    <h:selectOneMenu id="componente" value="#{productocomponenteController.selected.componente}" title="#{bundle.EditProductocomponenteTitle_componente}" required="true" requiredMessage="#{bundle.EditProductocomponenteRequiredMessage_componente}">
+                        <f:selectItems value="#{componenteController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{productocomponenteController.update}" value="#{bundle.EditProductocomponenteSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditProductocomponenteViewLink}"/>
+                <br />
+                <h:commandLink action="#{productocomponenteController.prepareList}" value="#{bundle.EditProductocomponenteShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditProductocomponenteIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

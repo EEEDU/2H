@@ -1,0 +1,30 @@
+﻿<cuantos-alumnos [todos] = "getNumTodos()"
+                 [hombres] = "getNumHombres()"
+                 [mujeres] = "getNumMujeres()">
+</cuantos-alumnos>
+
+<table>
+    <thead>
+        <tr>
+            <td>Nombre</td>
+            <td>Apellidos</td>
+            <td>Dirección</td>
+            <td>Fecha nacimiento</td>
+            <td>Sexo</td>
+        </tr>
+    </thead>
+    <tbody>
+        <ng-containes *ngFor="let alumno of alumnos">
+            <tr *ngFor="let alumno of alumnos" *ngIf="seleccion == 'Todos' || seleccion == alumno.sexo">
+                <td>{{alumnos.nombre | uppercase}}</td>
+                <td>{{alumnos.apellidos}}</td>
+                <td>{{alumnos.direccion}}</td>
+                <td>{{alumnos.fnac | date:'dd/MM/y'}}</td>
+                <td>{{alumnos.sexo}}</td>
+            </tr>
+        </ng-containes>
+        <tr *nfIf="!alumnos || alumnos.length==0">
+            <td colspan="4">No hay alumnos</td>
+        </tr>
+    </tbody>
+</table>
