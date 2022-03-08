@@ -11,6 +11,8 @@ namespace MVC01.Models
         public DbSet<MarcaModel> Marcas { get; set; }
         public DbSet<SerieModel> Series { get; set; }
         public DbSet<VehiculoModel> Vehiculos { get; set; }
+        public DbSet<ExtraModel> Extras{ get; set; }
+        public DbSet<VehiculosExtrasModel> VehiculosExtras{ get; set; }
 
     }
 }

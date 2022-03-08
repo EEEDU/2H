@@ -83,8 +83,8 @@ C:\Users\edu7g\source\repos\MVC01\bin\es\System.Web.Razor.resources.dll
 C:\Users\edu7g\source\repos\MVC01\bin\es\System.Web.WebPages.resources.dll
 C:\Users\edu7g\source\repos\MVC01\bin\es\System.Web.WebPages.Deployment.resources.dll
 C:\Users\edu7g\source\repos\MVC01\bin\es\System.Web.WebPages.Razor.resources.dll
-C:\Users\edu7g\source\repos\MVC01\obj\Debug\MVC01.csproj.AssemblyReference.cache
 C:\Users\edu7g\source\repos\MVC01\obj\Debug\MVC01.csproj.CoreCompileInputs.cache
 C:\Users\edu7g\source\repos\MVC01\obj\Debug\MVC01.csproj.CopyComplete
 C:\Users\edu7g\source\repos\MVC01\obj\Debug\MVC01.dll
 C:\Users\edu7g\source\repos\MVC01\obj\Debug\MVC01.pdb
+C:\Users\edu7g\source\repos\MVC01\obj\Debug\MVC01.csproj.AssemblyReference.cache

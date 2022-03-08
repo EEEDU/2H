@@ -130,15 +130,15 @@
     <Compile Include="Controllers\MarcaController.cs" />
     <Compile Include="Controllers\SerieController.cs" />
     <Compile Include="Controllers\VehiculoController.cs" />
-    <Compile Include="Controllers\VehiculosExtrasController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Contexto.cs" />
+    <Compile Include="Models\ExtraModel.cs" />
     <Compile Include="Models\MarcaModel.cs" />
     <Compile Include="Models\SerieModel.cs" />
     <Compile Include="Models\VehiculoModel.cs" />
-    <Compile Include="Models\VehiculosExtrasModelo.cs" />
+    <Compile Include="Models\VehiculosExtrasModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -163,6 +163,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Views\Serie\Index.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -186,11 +187,12 @@
     <Content Include="Views\Vehiculo\BusquedaColor.cshtml" />
     <Content Include="Views\Vehiculo\BusquedaMatriculaEntera.cshtml" />
     <Content Include="Views\Vehiculo\Edit.cshtml" />
+    <Content Include="Views\Marca\Index.cshtml" />
+    <Content Include="Views\Vehiculo\Listado.cshtml" />
     <Content Include="Views\Vehiculo\Details.cshtml" />
     <Content Include="Views\Vehiculo\Delete.cshtml" />
-    <Content Include="Views\Marca\Index.cshtml" />
+    <Content Include="Views\Marca\List.cshtml" />
     <Content Include="Views\Serie\List.cshtml" />
-    <Content Include="Views\Vehiculo\Listado.cshtml" />
     <Content Include="Views\Vehiculo\Listado2.cshtml" />
     <Content Include="Views\Vehiculo\ListadoColor.cshtml" />
   </ItemGroup>

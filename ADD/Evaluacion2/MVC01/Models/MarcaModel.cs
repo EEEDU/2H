@@ -9,7 +9,6 @@ namespace MVC01.Models
     {
         public int ID { get; set; }
         public String Nom_marca { get; set; }
-
         public List<SerieModel> Series { get; set; }
     }
 }

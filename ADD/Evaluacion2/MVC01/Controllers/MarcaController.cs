@@ -9,12 +9,20 @@ namespace MVC01.Controllers
 {
     public class MarcaController : Controller
     {
+        Contexto db = new Contexto();
+
         // GET: Marca
         public ActionResult Index()
         {
-            Contexto db = new Contexto();
             List<MarcaModel> marcas = db.Marcas.ToList();
             return View(marcas);
+        }
+
+        // GET: Marca/List
+        public ActionResult List()
+        {
+            List<MarcaModel> lista = db.Marcas.ToList();
+            return View(lista);
         }
 
         public ActionResult Desplegable()

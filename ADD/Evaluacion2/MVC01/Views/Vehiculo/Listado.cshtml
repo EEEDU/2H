@@ -5,18 +5,20 @@
 }
 
 <h2>Listado</h2>
-
+ 
 <p>
-    <form metod="get">
-        <table>
-            <tr>
-            <td>@Html.DropDownList("MarcaId", null, htmlAttributes: new { @class = "form-control", onchange = "this.form.submit()" })</td>
-            <td>@Html.DropDownList("SerieId")</td>
-            <td></td>
-            </tr>
-        </table>
-    </form>
+    @Html.ActionLink("Create New", "Create")
 </p>
+
+<form metod="get">
+    <table>
+        <tr>
+        <td>@Html.DropDownList("MarcaId", null, htmlAttributes: new { @class = "form-control", onchange = "this.form.submit()" })</td>
+        <td>@Html.DropDownList("SerieId", null, htmlAttributes: new { @class = "form-control", onchange = "this.form.submit()" })</td>
+        </tr>
+    </table>
+</form>
+
 <table class="table">
     <tr>
         <th>

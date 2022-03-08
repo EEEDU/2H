@@ -12,5 +12,9 @@ namespace MVC01.Models
         public String Color { get; set; }
         public int SerieID { get; set; }
         public SerieModel Serie { get; set; }
+
+        //Items para ListBox
+        public List<int> ExtrasSeleccionados { get; set; }
+        public List<VehiculosExtrasModel> VehiculoExtras { get; set; }
     }
 }

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<MVC01.Models.MarcaModel>
+﻿@model MVC01.Models.MarcaModel 
 
 @{
     ViewBag.Title = "List";
@@ -7,23 +7,20 @@
 <h2>List</h2>
 
 <p>
-    <h2>@Html.DisplayName(Model.NomMarca)</h2>
-</p>
-<p>
     @Html.ActionLink("Create New", "Create")
 </p>
+<h2 align="center">@Html.DisplayName(Model.Nom_marca)</h2>
 <table class="table">
-    <tr>
+    <tr> 
         <th>
-            @Html.DisplayName("Series:")
+            @Html.DisplayName("Series")
         </th>
-        <th></th>
     </tr>
 
-@foreach (var item in Model) {
+@foreach (var item in Model.Series) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Series.Nom_Series)
+            @Html.DisplayFor(modelItem => item.Nom_serie)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |

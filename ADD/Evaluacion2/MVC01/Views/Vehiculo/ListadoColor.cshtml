@@ -6,43 +6,41 @@
 
 <h2>ListadoColor</h2>
 
-<h2>Selecciona un color</h2>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
 <form method="get">
     <div align="center">
-        @Html.DropDownList("")
+        @Html.DropDownList("color", "Selecciona un color")
+        <input type="submit" value="Buscar"/>
     </div>
 </form>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Serie.Nom_serie)
+            @Html.DisplayNameFor(model => model.Nom_marca)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nom_serie)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Matricula)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Color)
         </th>
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Serie.Nom_serie)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Matricula)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Color)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>
-    </tr>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Nom_marca)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Nom_serie)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Matricula)
+    </td>
+</tr>
 }
 
 </table>

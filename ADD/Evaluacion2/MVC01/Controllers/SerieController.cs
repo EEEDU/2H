@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
+
 namespace MVC01.Controllers
 {
     public class SerieController : Controller
@@ -14,14 +15,15 @@ namespace MVC01.Controllers
         // GET: Serie
         public ActionResult Index()
         {
-            return View();
+            ViewBag.nomMarca = db.Marcas.ToList();
+            var series = db.Series.ToList();
+            return View(series);
         }
 
-        // GET: Serie
-        public ActionResult List(int id)
+        // GET: Serie/List
+        public ActionResult List(int marcaId)
         {
-            Contexto db = new Contexto();
-            MarcaModel marca = db.Marcas.Find(id);
+            MarcaModel marca = db.Marcas.Include("Series").Single(m => m.ID == marcaId);
             return View(marca);
         }
 
