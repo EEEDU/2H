@@ -1,0 +1,26 @@
+<table *ngIf="alumno">
+    <thead>
+        <tr>
+            <th [attr.colspan]="2">
+                Alumno
+            </th>
+        </tr>
+    </thead>
+    <tr>
+        <td>Nombre</td>
+        <td>{{alumno.nombre}}</td>
+    </tr>
+    <tr>
+        <td>Apellidos</td>
+        <td>{{alumno.apellidos}}</td>
+    </tr>
+    <tr>
+        <td>Direccion</td>
+        <td>{{alumno.direccion}}</td>
+    </tr>
+    <tr>
+        <td>Edad</td>
+        <td>{{alumno.sexo}}</td>
+    </tr>
+</table>
+<br>

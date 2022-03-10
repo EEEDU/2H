@@ -1,0 +1,21 @@
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Dirección</th>
+        </tr>  
+    </thead>
+    <tbody>
+        <ng-container *ngFor="let ods of ods">
+            <tr>
+                <td>{{ods.ID}}</td>
+                <td>{{ods.nomODS}}</td>
+                <td>{{ods.foto}}</td>
+            </tr>
+        </ng-container>
+        <tr *ngIf="!ods || ods.length == 0">
+            No hay ODS
+        </tr>
+    </tbody>
+</table>
