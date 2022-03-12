@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app>
+
+	<servlet>
+		<servlet-name>listado</servlet-name>
+		<servlet-class>es.salesianos.servlet.ListadoServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>listado</servlet-name>
+		<url-pattern>/cargarListado</url-pattern>
+	</servlet-mapping>
+
+
+</web-app>     
