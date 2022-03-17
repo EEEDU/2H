@@ -1,0 +1,12 @@
+<aura:component>
+    <input type="Double" aura:id="numero1"/>
+    <select aura:id="operador">
+        <option value="suma">+</option>
+        <option value="resta">-</option>
+        <option value="multiplicacion">*</option>
+        <option value="division">/</option>
+    </select>
+    <input type="Double" aura:id="numero2"/>
+    <input type="button" onclick="{!c.resolver}" value="="/>
+    
+</aura:component>	
