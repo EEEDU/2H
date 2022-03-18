@@ -1,0 +1,10 @@
+<aura:component controller="random">
+    <aura:handler event="c.eleccionEvent"  action="{!c.comprobar}" />
+    <aura:attribute name="jugador" type="String"/>
+    <aura:attribute name="cpu" type="String"/>
+    <aura:attribute name="ganador" type="String"/>
+    <div> Jugador saca {!v.jugador}</div>
+    <div> CPU saca {!v.cpu}</div>
+    <input type="button" onclick="{!c.ganador}" value="QUIEN GANA?" />
+    <div> El ganador es {!v.ganador}</div>
+</aura:component>	
