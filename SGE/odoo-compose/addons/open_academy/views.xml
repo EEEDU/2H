@@ -1,0 +1,216 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+	<!-- aca.cursos action window -->
+	<record id="course_action" model="ir.actions.act_window">
+		<field name="name">cursos</field>
+		<field name="type">ir.actions.act_window</field>
+		<field name="res_model">aca.cursos</field>
+		<field name="view_mode">tree,form</field>
+		<field name="help" type="html">
+			<p class="oe_view_nocontent_create">
+				<!-- Add Text Here -->
+			</p>
+			<p>
+				<!-- More details about what a user can do with this object will be OK -->
+			</p>
+		</field>
+	</record>
+
+	<!-- aca.cursos tree view -->
+	<record id="cursos_view_tree" model="ir.ui.view">
+		<field name="name">aca.cursos.view.tree</field>
+		<field name="model">aca.cursos</field>
+		<field name="arch" type="xml">
+			<tree>
+				<!-- Add your fields here -->
+				<field name="name"/>
+				<field name="description"/>
+				<field name="session_id"/>
+			</tree>
+		</field>
+	</record>
+
+	<!-- aca.cursos form view -->
+	<record id="cursos_view_form" model="ir.ui.view">
+		<field name="name">aca.cursos.view.form</field>
+		<field name="model">aca.cursos</field>
+		<field name="arch" type="xml">
+			<form string="Cursos Form">
+				<sheet>
+					<group colspan="4">
+						<group colspan="2" col="2">
+							<separator string="Grupo 1" colspan="2"/>
+							<field name="name"/>
+							<field name="description"/>
+							<field name="session_id"/>
+						</group>
+						<group colspan="2" col="2">
+							<separator string="Grupo 2" colspan="2"/>
+							<field name="name"/>
+							<field name="description"/>
+						</group>
+						<notebook colspan="4">
+						<page string="Description">
+							<field name="description" nolabel="1"/>
+						</page>
+					</notebook>
+					</group>
+				</sheet>
+			</form>
+		</field>
+	</record>
+
+	<!-- aca.cursos search view -->
+	<record id="cursos_view_search" model="ir.ui.view">
+		<field name="name">aca.cursos.view.search</field>
+		<field name="model">aca.cursos</field>
+		<field name="arch" type="xml">
+			<search string="Search Description">
+				<!-- Add your fields here -->
+				<field name="name"/>
+				<field name="description"/>
+			</search>
+		</field>
+	</record>
+
+	<!-- aca.sesiones action window -->
+	<record id="sesiones_action" model="ir.actions.act_window">
+		<field name="name">sesiones</field>
+		<field name="type">ir.actions.act_window</field>
+		<field name="res_model">aca.sesiones</field>
+		<field name="view_mode">tree,form</field>
+		<field name="help" type="html">
+			<p class="oe_view_nocontent_create">
+				<!-- Add Text Here -->
+			</p><p>
+				<!-- More details about what a user can do with this object will be OK --> 
+			</p>
+		</field>
+	</record>
+
+	<!-- aca.sesiones form view -->
+	<record id="sesiones_view_form" model="ir.ui.view">
+		<field name="name">aca.sesiones.view.form</field>
+		<field name="model">aca.sesiones</field>
+		<field name="arch" type="xml">
+			<form string="sesiones">
+				<sheet>
+					<group>
+						<!-- Add your fields here -->
+						<field name="name"/>
+						<field name="active"/>
+						<field name="start_date"/>
+						<field name="duration"/>
+						<field name="seats_available"/>
+						<field name="percentage_seats" widget='progressbar'/>
+						<field name="course_id"/>
+						<field name="user_id"/>
+						<field name="companero_ids"/>
+					</group>
+				</sheet>
+			</form>
+		</field>
+	</record>
+
+	<!-- aca.sesiones tree view -->
+	<record id="sesiones_view_tree" model="ir.ui.view">
+		<field name="name">sesiones</field>
+		<field name="model">aca.sesiones</field>
+		<field name="arch" type="xml">
+			<tree>
+				<!-- Add your fields here -->
+				<field name="name"/>
+				<field name="active"/>
+				<field name="start_date"/>
+				<field name="duration"/>
+				<field name="seats_available"/>
+				<field name="percentage_seats" widget='percentpie'/>
+				<field name="course_id"/>
+				<field name="user_id"/>
+				<field name="companero_ids"/>
+			</tree>
+		</field>
+	</record>
+
+	<!-- aca.companero action window -->
+	<record id="companero_action" model="ir.actions.act_window">
+		<field name="name">companeros</field>
+		<field name="type">ir.actions.act_window</field>
+		<field name="res_model">aca.companeros</field>
+		<field name="view_mode">tree,form</field>
+		<field name="help" type="html">
+			<p class="oe_view_nocontent_create">
+				<!-- Add Text Here -->
+			</p><p>
+				<!-- More details about what a user can do with this object will be OK --> 
+			</p>
+		</field>
+	</record>
+
+	<!-- aca.companero form view -->
+	<record id="companero_view_form" model="ir.ui.view">
+		<field name="name">Companeros</field>
+		<field name="model">aca.companeros</field>
+		<field name="arch" type="xml">
+			<form string="companero">
+				<sheet>
+					<group>
+						<!-- Add your fields here -->
+						<field name="name"/>
+						<field name="session_ids"/>
+					</group>
+				</sheet>
+			</form>
+		</field>
+	</record>
+
+	<!-- aca.companero tree view -->
+	<record id="model_name_view_tree" model="ir.ui.view">
+		<field name="name">companero</field>
+		<field name="model">aca.companeros</field>
+		<field name="arch" type="xml">
+			<tree>
+				<!-- Add your fields here -->
+				<field name="name"/>
+				<field name="session_ids"/>
+			</tree>
+		</field>
+	</record>
+
+	<!-- aca.companero inherit form view -->
+	<record id="view_iaca_companero_view_form1" model="ir.ui.view">
+		<field name="name">aca.companero.inherit.view.form</field>
+		<field name="model">aca.companeros</field>
+		<field name="inherit_id" ref="companero_view_form"/>
+		<field name="arch" type="xml">
+			<!-- Add your xpath here -->
+			<xpath expr="//field[@name='name']" position="after">
+				<!-- Add your fields here -->
+				<field name="instructor"/>
+			</xpath>
+		</field>
+	</record>
+
+	<!-- aca.companero inherit tree view -->
+	<record id="aca_companero_view_tree1" model="ir.ui.view">
+		<field name="name">aca.companero.inherit.view.tree</field>
+		<field name="model">aca.companeros</field>
+		<field name="inherit_id" ref="model_name_view_tree"/>
+		<field name="arch" type="xml">
+			<!-- Add your xpath here -->
+			<xpath expr="//field[@name='name']" position="after">
+				<!-- Add your fields here -->
+				<field name="instructor"/>
+			</xpath>
+		</field>
+	</record>
+
+	<!-- This Menu Item will appear in the Upper bar, that's why It needs NO parent or action -->
+	<menuitem id="academy_menu_root" name="Academy"/>
+		<!-- This Menu Item must have a parent and an action -->
+		<menuitem id="cursos_menu_act" name="Cursos" parent="academy_menu_root" action="course_action"/>
+		<!-- This Menu Item must have a parent and an action -->
+		<menuitem id="sesiones_menu_act" name="Sesiones" parent="academy_menu_root" action="sesiones_action"/>
+		<!-- This Menu Item must have a parent and an action -->
+		<menuitem id="companeros_menu_act" name="Compan	eros" parent="academy_menu_root" action="companero_action"/>
+</odoo>
