@@ -1,0 +1,4 @@
+<aura:component>
+    <aura:handler event="c:OperacionEvent" action="{!c.resolver}"/>
+    <input type="Double" aura:id="resultado" name="resultado"/>
+</aura:component>	

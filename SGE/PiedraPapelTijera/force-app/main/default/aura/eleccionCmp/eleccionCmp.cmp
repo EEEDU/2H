@@ -1,8 +1,0 @@
-<aura:component>
-    <select aura:id="eleccion">
-        <option value="piedra">Piedra</option>
-        <option value="papel">Papel</option>
-        <option value="tijera">Tijera</option>
-    </select>
-    <input type="button" onclick="{!c.seleccionar}" value="Enviar"/>
-</aura:component>	

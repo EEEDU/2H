@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListProductopropioTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            
+            <h:form>
+                <p:toolbar style="margin-bottom: 10px; width: 69%; float: left">
+                    <f:facet name="left">
+                        <p:selectOneMenu id="unaMarca" value="#{componenteController.marca}" onchange="#{componenteController.cargarComponentesMarcas()} submit()">
+                            <f:selectItems value="#{marcaController.itemsAvailableSelectOne}"/>
+                        </p:selectOneMenu>
+                    </f:facet>
+       
+                    <f:facet name="right">
+                        <p:selectOneMenu id="unComponente" value="#{productopropioController.componente}" onchange="#{productopropioController.cargarProductosComponentes()} submit()">
+                            <f:selectItems value="#{componenteController.itemsAvailableSelectOneMarca}"/>
+                        </p:selectOneMenu>
+                    </f:facet>
+                </p:toolbar>
+            </h:form>
+            
+          <h:form styleClass="jsfcrud_list_form">
+              <p:dataTable var="productocomponente" value="#{productopropioController.listaProductospropiosComponentes}" rows="10"
+                             paginator="true"
+                             paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                             currentPageReportTemplate="{startRecord}-{endRecord} of {totalRecords} records"
+                             rowsPerPageTemplate="5,10,15">
+
+                  <p:column headerText="Codigo" sortBy="#{productocomponente.productopropio.codProducto}" width="50" style="text-align: center">
+                      <h:outputText value="#{productocomponente.productopropio.codProducto}" />
+                    </p:column>
+                  <p:column headerText="Nombre" sortBy="#{productocomponente.productopropio.denominacion}" width="50">
+                      <h:outputText value="#{productocomponente.productopropio.denominacion}" />
+                    </p:column>
+                  <p:column headerText="Precio" sortBy="#{productocomponente.productopropio.precio}" width="50">
+                      <h:outputText value="#{productocomponente.productopropio.precio}" />
+                    </p:column>
+                  <p:column headerText="Unidades" sortBy="#{productocomponente.unidades}" width="50">
+                      <h:outputText value="#{productocomponente.unidades}" />
+                    </p:column>
+
+                    <p:column width="50">
+                        <h:commandLink action="#{productopropioController.prepareView}" value="#{bundle.ListProductopropioViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{productopropioController.prepareEdit}" value="#{bundle.ListProductopropioEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{productopropioController.destroy}" value="#{bundle.ListProductopropioDestroyLink}"/>
+                    </p:column>
+                </p:dataTable></h:form>
+            <h:form styleClass="jsfcrud_list_form">
+                <br />
+                <h:commandLink action="#{productopropioController.prepareCreate}" value="#{bundle.ListProductopropioCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListProductopropioIndexLink}"/>           
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

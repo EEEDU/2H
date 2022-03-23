@@ -1,0 +1,5 @@
+<aura:component>
+    <div>Soy un componente</div>
+    <input label="Escribe tu mensaje" aura:id="msg"/>
+    <input type="button" value="Saludar" onclick="{!c.holaMundo}"/>
+</aura:component>	

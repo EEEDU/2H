@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewProveedorcomponenteTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewProveedorcomponenteLabel_numUnidades}"/>
+                    <h:outputText value="#{proveedorcomponenteController.selected.numUnidades}" title="#{bundle.ViewProveedorcomponenteTitle_numUnidades}"/>
+                    <h:outputText value="#{bundle.ViewProveedorcomponenteLabel_precio}"/>
+                    <h:outputText value="#{proveedorcomponenteController.selected.precio}" title="#{bundle.ViewProveedorcomponenteTitle_precio}"/>
+                    <h:outputText value="#{bundle.ViewProveedorcomponenteLabel_componente}"/>
+                    <h:outputText value="#{proveedorcomponenteController.selected.componente}" title="#{bundle.ViewProveedorcomponenteTitle_componente}"/>
+                    <h:outputText value="#{bundle.ViewProveedorcomponenteLabel_proveedor}"/>
+                    <h:outputText value="#{proveedorcomponenteController.selected.proveedor}" title="#{bundle.ViewProveedorcomponenteTitle_proveedor}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{proveedorcomponenteController.destroyAndView}" value="#{bundle.ViewProveedorcomponenteDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewProveedorcomponenteEditLink}"/>
+                <br />
+                <h:commandLink action="#{proveedorcomponenteController.prepareCreate}" value="#{bundle.ViewProveedorcomponenteCreateLink}" />
+                <br />
+                <h:commandLink action="#{proveedorcomponenteController.prepareList}" value="#{bundle.ViewProveedorcomponenteShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewProveedorcomponenteIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

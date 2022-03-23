@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateLibrosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateLibrosLabel_codLibro}" for="codLibro" />
+                    <h:inputText id="codLibro" value="#{librosController.selected.codLibro}" title="#{bundle.CreateLibrosTitle_codLibro}" required="true" requiredMessage="#{bundle.CreateLibrosRequiredMessage_codLibro}"/>
+                    <h:outputLabel value="#{bundle.CreateLibrosLabel_nomLibro}" for="nomLibro" />
+                    <h:inputText id="nomLibro" value="#{librosController.selected.nomLibro}" title="#{bundle.CreateLibrosTitle_nomLibro}" />
+                    <h:outputLabel value="#{bundle.CreateLibrosLabel_ano}" for="ano" />
+                    <h:inputText id="ano" value="#{librosController.selected.ano}" title="#{bundle.CreateLibrosTitle_ano}" />
+                    <h:outputLabel value="#{bundle.CreateLibrosLabel_portada}" for="portada" />
+                    <h:inputText id="portada" value="#{librosController.selected.portada}" title="#{bundle.CreateLibrosTitle_portada}" required="true" requiredMessage="#{bundle.CreateLibrosRequiredMessage_portada}"/>
+                    <h:outputLabel value="#{bundle.CreateLibrosLabel_nomArchivo}" for="nomArchivo" />
+                    <h:inputText id="nomArchivo" value="#{librosController.selected.nomArchivo}" title="#{bundle.CreateLibrosTitle_nomArchivo}" required="true" requiredMessage="#{bundle.CreateLibrosRequiredMessage_nomArchivo}"/>
+                    <h:outputLabel value="#{bundle.CreateLibrosLabel_pelicula}" for="pelicula" />
+                    <h:inputText id="pelicula" value="#{librosController.selected.pelicula}" title="#{bundle.CreateLibrosTitle_pelicula}" />
+                    <h:outputLabel value="#{bundle.CreateLibrosLabel_comentario}" for="comentario" />
+                    <h:inputTextarea rows="4" cols="30" id="comentario" value="#{librosController.selected.comentario}" title="#{bundle.CreateLibrosTitle_comentario}" />
+                    <h:outputLabel value="Autores: ">
+                        <h:selectManyListbox value="#{librosController.selected.autoresList}" size="5" style="width: 200px">
+                            <f:selectItems value="#{autoresController.itemsAvailableSelectOne}" var="escritor" itemValue="#{escritor}" ></f:selectItems>
+                        </h:selectManyListbox>
+                     </h:outputLabel>
+                     <h:outputLabel value="Premios: ">
+                         <h:selectManyListbox value="#{librosController.selected.premiosList}" size="5" style="width: 200px">
+                             <f:selectItems value="#{premiosController.itemsAvailableSelectOne}" var="escritor" itemValue="#{premio}" ></f:selectItems>
+                        </h:selectManyListbox>
+                     </h:outputLabel>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{librosController.create}" value="#{bundle.CreateLibrosSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{librosController.prepareList}" value="#{bundle.CreateLibrosShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateLibrosIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

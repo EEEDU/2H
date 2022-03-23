@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewLineapclienteTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewLineapclienteLabel_idLinea}"/>
+                    <h:outputText value="#{lineapclienteController.selected.idLinea}" title="#{bundle.ViewLineapclienteTitle_idLinea}"/>
+                    <h:outputText value="#{bundle.ViewLineapclienteLabel_cantidad}"/>
+                    <h:outputText value="#{lineapclienteController.selected.cantidad}" title="#{bundle.ViewLineapclienteTitle_cantidad}"/>
+                    <h:outputText value="#{bundle.ViewLineapclienteLabel_codPedidoCliente}"/>
+                    <h:outputText value="#{lineapclienteController.selected.codPedidoCliente}" title="#{bundle.ViewLineapclienteTitle_codPedidoCliente}"/>
+                    <h:outputText value="#{bundle.ViewLineapclienteLabel_codProducto}"/>
+                    <h:outputText value="#{lineapclienteController.selected.codProducto}" title="#{bundle.ViewLineapclienteTitle_codProducto}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{lineapclienteController.destroyAndView}" value="#{bundle.ViewLineapclienteDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewLineapclienteEditLink}"/>
+                <br />
+                <h:commandLink action="#{lineapclienteController.prepareCreate}" value="#{bundle.ViewLineapclienteCreateLink}" />
+                <br />
+                <h:commandLink action="#{lineapclienteController.prepareList}" value="#{bundle.ViewLineapclienteShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewLineapclienteIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,9 +1,0 @@
-/proyectos/DDI/eclipse-workspace/Recuperacion-DDI/src/main/java/es/salesianos/servlets/ListaAlumno.java
-/proyectos/DDI/eclipse-workspace/Recuperacion-DDI/src/main/java/es/salesianos/entities/Clase.java
-/proyectos/DDI/eclipse-workspace/Recuperacion-DDI/src/main/java/es/salesianos/repository/Repo.java
-/proyectos/DDI/eclipse-workspace/Recuperacion-DDI/src/main/java/es/salesianos/connection/AbstractConnetion.java
-/proyectos/DDI/eclipse-workspace/Recuperacion-DDI/src/main/java/es/salesianos/repository/AlumnoRepo.java
-/proyectos/DDI/eclipse-workspace/Recuperacion-DDI/src/main/java/es/salesianos/repository/ClaseRepo.java
-/proyectos/DDI/eclipse-workspace/Recuperacion-DDI/src/main/java/es/salesianos/connection/H2Connection.java
-/proyectos/DDI/eclipse-workspace/Recuperacion-DDI/src/main/java/es/salesianos/servlets/WelcomeServlet.java
-/proyectos/DDI/eclipse-workspace/Recuperacion-DDI/src/main/java/es/salesianos/entities/Alumno.java

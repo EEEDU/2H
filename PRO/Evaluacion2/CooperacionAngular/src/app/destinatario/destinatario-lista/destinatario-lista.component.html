@@ -1,7 +1,0 @@
-<select  class="form-select" aria-label="Default select example" name="losDestinatarios" [(ngModel)]="destinatarioElegido" (change)="cambiarDestinatario()">
-    
-    <ng-container *ngFor="let destinatario of destinatarios">
-        <option value="{{destinatario.ID}}"> {{destinatario.nomDestinatario}}</option>
-    </ng-container>
-
-</select>

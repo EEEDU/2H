@@ -1,0 +1,33 @@
+﻿@model MVC01.Models.MarcaModel 
+
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>List</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<h2 align="center">@Html.DisplayName(Model.Nom_marca)</h2>
+<table class="table">
+    <tr> 
+        <th>
+            @Html.DisplayName("Series")
+        </th>
+    </tr>
+
+@foreach (var item in Model.Series) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nom_serie)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

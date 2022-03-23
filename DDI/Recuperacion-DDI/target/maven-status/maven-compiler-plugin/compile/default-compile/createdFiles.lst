@@ -1,9 +1,0 @@
-es/salesianos/repository/ClaseRepo.class
-es/salesianos/servlets/WelcomeServlet.class
-es/salesianos/entities/Clase.class
-es/salesianos/servlets/ListaAlumno.class
-es/salesianos/repository/AlumnoRepo.class
-es/salesianos/repository/Repo.class
-es/salesianos/entities/Alumno.class
-es/salesianos/connection/H2Connection.class
-es/salesianos/connection/AbstractConnection.class

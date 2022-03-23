@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditPremiosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditPremiosLabel_codPremio}" for="codPremio" />
+                    <h:inputText id="codPremio" value="#{premiosController.selected.codPremio}" title="#{bundle.EditPremiosTitle_codPremio}" required="true" requiredMessage="#{bundle.EditPremiosRequiredMessage_codPremio}"/>
+                    <h:outputLabel value="#{bundle.EditPremiosLabel_nomPremio}" for="nomPremio" />
+                    <h:inputTextarea rows="4" cols="30" id="nomPremio" value="#{premiosController.selected.nomPremio}" title="#{bundle.EditPremiosTitle_nomPremio}" required="true" requiredMessage="#{bundle.EditPremiosRequiredMessage_nomPremio}"/>
+                    <h:outputLabel value="#{bundle.EditPremiosLabel_tipo}" for="tipo" />
+                    <h:inputText id="tipo" value="#{premiosController.selected.tipo}" title="#{bundle.EditPremiosTitle_tipo}" required="true" requiredMessage="#{bundle.EditPremiosRequiredMessage_tipo}"/>
+                    <h:outputLabel value="#{bundle.EditPremiosLabel_codPais}" for="codPais" />
+                    <h:selectOneMenu id="codPais" value="#{premiosController.selected.codPais}" title="#{bundle.EditPremiosTitle_codPais}" required="true" requiredMessage="#{bundle.EditPremiosRequiredMessage_codPais}">
+                        <f:selectItems value="#{paisesController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{premiosController.update}" value="#{bundle.EditPremiosSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditPremiosViewLink}"/>
+                <br />
+                <h:commandLink action="#{premiosController.prepareList}" value="#{bundle.EditPremiosShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditPremiosIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

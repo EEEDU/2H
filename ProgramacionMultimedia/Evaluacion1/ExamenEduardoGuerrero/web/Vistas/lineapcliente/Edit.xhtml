@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditLineapclienteTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditLineapclienteLabel_idLinea}" for="idLinea" />
+                    <h:inputText id="idLinea" value="#{lineapclienteController.selected.idLinea}" title="#{bundle.EditLineapclienteTitle_idLinea}" required="true" requiredMessage="#{bundle.EditLineapclienteRequiredMessage_idLinea}"/>
+                    <h:outputLabel value="#{bundle.EditLineapclienteLabel_cantidad}" for="cantidad" />
+                    <h:inputText id="cantidad" value="#{lineapclienteController.selected.cantidad}" title="#{bundle.EditLineapclienteTitle_cantidad}" required="true" requiredMessage="#{bundle.EditLineapclienteRequiredMessage_cantidad}"/>
+                    <h:outputLabel value="#{bundle.EditLineapclienteLabel_codPedidoCliente}" for="codPedidoCliente" />
+                    <h:selectOneMenu id="codPedidoCliente" value="#{lineapclienteController.selected.codPedidoCliente}" title="#{bundle.EditLineapclienteTitle_codPedidoCliente}" required="true" requiredMessage="#{bundle.EditLineapclienteRequiredMessage_codPedidoCliente}">
+                        <f:selectItems value="#{pedidoclienteController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditLineapclienteLabel_codProducto}" for="codProducto" />
+                    <h:selectOneMenu id="codProducto" value="#{lineapclienteController.selected.codProducto}" title="#{bundle.EditLineapclienteTitle_codProducto}" required="true" requiredMessage="#{bundle.EditLineapclienteRequiredMessage_codProducto}">
+                        <f:selectItems value="#{productopropioController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{lineapclienteController.update}" value="#{bundle.EditLineapclienteSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditLineapclienteViewLink}"/>
+                <br />
+                <h:commandLink action="#{lineapclienteController.prepareList}" value="#{bundle.EditLineapclienteShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditLineapclienteIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

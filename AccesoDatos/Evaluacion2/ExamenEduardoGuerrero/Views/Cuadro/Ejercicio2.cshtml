@@ -1,0 +1,62 @@
+﻿@model ExamenEduardoGuerrero.Models.ExposicionModel
+
+@{
+    ViewBag.Title = "Ejercicio2";
+}
+
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<h2>
+    @Model.Titulo_Exposicion
+</h2>
+<h5>
+    @Model.Fecha_Inicio, @Model.Fecha_Fin, @Model.Lugar
+</h5>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Cuadro")
+        </th>
+        <th>
+            @Html.DisplayName("Pintor")
+        </th>
+        <th>
+            @Html.DisplayName("Estilos")
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model.Cuadros) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Titulo_Cuadro)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Pintor.Nom_Pintor)
+    </td>
+    <td>
+        <table>
+            @foreach (var estilo in item.EstilosCuadros)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => estilo.Estilos.Nom_Estilo)
+                    </td>
+                </tr>
+                
+            }
+        </table>
+
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+        @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+    </td>
+</tr>
+}
+
+</table>

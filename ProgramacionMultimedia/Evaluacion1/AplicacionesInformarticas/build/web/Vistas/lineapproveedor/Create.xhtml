@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateLineapproveedorTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateLineapproveedorLabel_codLineaPP}" for="codLineaPP" />
+                    <h:inputText id="codLineaPP" value="#{lineapproveedorController.selected.codLineaPP}" title="#{bundle.CreateLineapproveedorTitle_codLineaPP}" required="true" requiredMessage="#{bundle.CreateLineapproveedorRequiredMessage_codLineaPP}"/>
+                    <h:outputLabel value="#{bundle.CreateLineapproveedorLabel_numUnidades}" for="numUnidades" />
+                    <h:inputText id="numUnidades" value="#{lineapproveedorController.selected.numUnidades}" title="#{bundle.CreateLineapproveedorTitle_numUnidades}" required="true" requiredMessage="#{bundle.CreateLineapproveedorRequiredMessage_numUnidades}"/>
+                    <h:outputLabel value="#{bundle.CreateLineapproveedorLabel_codPedidoProveedor}" for="codPedidoProveedor" />
+                    <h:inputText id="codPedidoProveedor" value="#{lineapproveedorController.selected.codPedidoProveedor}" title="#{bundle.CreateLineapproveedorTitle_codPedidoProveedor}" required="true" requiredMessage="#{bundle.CreateLineapproveedorRequiredMessage_codPedidoProveedor}"/>
+                    <h:outputLabel value="#{bundle.CreateLineapproveedorLabel_codComponente}" for="codComponente" />
+                    <h:selectOneMenu id="codComponente" value="#{lineapproveedorController.selected.codComponente}" title="#{bundle.CreateLineapproveedorTitle_codComponente}" required="true" requiredMessage="#{bundle.CreateLineapproveedorRequiredMessage_codComponente}">
+                        <f:selectItems value="#{componeneteController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{lineapproveedorController.create}" value="#{bundle.CreateLineapproveedorSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{lineapproveedorController.prepareList}" value="#{bundle.CreateLineapproveedorShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateLineapproveedorIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

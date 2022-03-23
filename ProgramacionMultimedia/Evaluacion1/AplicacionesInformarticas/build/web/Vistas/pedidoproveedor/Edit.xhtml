@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditPedidoproveedorTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditPedidoproveedorLabel_numPedido}" for="numPedido" />
+                    <h:inputText id="numPedido" value="#{pedidoproveedorController.selected.numPedido}" title="#{bundle.EditPedidoproveedorTitle_numPedido}" required="true" requiredMessage="#{bundle.EditPedidoproveedorRequiredMessage_numPedido}"/>
+                    <h:outputLabel value="#{bundle.EditPedidoproveedorLabel_fecha}" for="fecha" />
+                    <h:inputText id="fecha" value="#{pedidoproveedorController.selected.fecha}" title="#{bundle.EditPedidoproveedorTitle_fecha}" required="true" requiredMessage="#{bundle.EditPedidoproveedorRequiredMessage_fecha}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditPedidoproveedorLabel_codProveedor}" for="codProveedor" />
+                    <h:selectOneMenu id="codProveedor" value="#{pedidoproveedorController.selected.codProveedor}" title="#{bundle.EditPedidoproveedorTitle_codProveedor}" required="true" requiredMessage="#{bundle.EditPedidoproveedorRequiredMessage_codProveedor}">
+                        <f:selectItems value="#{proveedorController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{pedidoproveedorController.update}" value="#{bundle.EditPedidoproveedorSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditPedidoproveedorViewLink}"/>
+                <br />
+                <h:commandLink action="#{pedidoproveedorController.prepareList}" value="#{bundle.EditPedidoproveedorShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditPedidoproveedorIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListPremiosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            
+             <h:form>
+                <p:toolbar style="margin-bottom: 10px; width: 69%; float: left">
+                    <f:facet name="left">
+                        <p:selectOneMenu id="unPais" value="#{autoresController.pais}" onchange="#{autoresController.cargarAutoresPaises()} submit()">
+                            <f:selectItems value="#{paisesController.itemsAvailableSelectOne}"/>
+                        </p:selectOneMenu>   
+                    </f:facet>
+                    
+                    <f:facet name="right">
+                        <p:selectOneMenu id="unAutor" value="#{premiosController.autor}" onchange="#{premiosController.cargarPremiosAutores()} submit()">
+                            <f:selectItems value="#{autoresController.itemsAvailableSelectOnePais}"/>
+                        </p:selectOneMenu>   
+                    </f:facet>
+                </p:toolbar>
+            </h:form>
+            <h:form>
+                <p:dataTable  var="premios" value="#{premiosController.listaPA}"  rows="10" style="width: 50%; float:left;"
+                             paginator="true"
+                             paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                             currentPageReportTemplate="{startRecord}-{endRecord} of {totalRecords} records"
+                             rowsPerPageTemplate="5,10,15">
+
+                    <p:column headerText="Cod." sortBy="#{premios.premios}" width="50" style="text-align: center">
+                        <h:outputText value="#{premios.premios}" />
+                    </p:column>
+
+
+                </p:dataTable>
+
+            <p:dock position="bottom">
+                    <p:menuitem value="listado" icon="/resources/iconos/listado.png" url="List.xhtml"/>
+                    <p:menuitem value="inicio" icon="/resources/iconos/home.ico" outcome="/index"/>
+            </p:dock>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

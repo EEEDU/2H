@@ -1,8 +1,0 @@
-<select  class="form-select" aria-label="Default select example" name="lasclases" [(ngModel)]="claseElegida" (change)="cuandoCambiemos()">
-
-    <ng-container *ngFor="let clase of clases">
-        <option value="{{clase.ID}}"> {{clase.nombre}}</option>
-
-    </ng-container>
-    
-</select>

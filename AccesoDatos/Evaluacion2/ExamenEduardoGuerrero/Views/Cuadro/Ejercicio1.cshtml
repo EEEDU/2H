@@ -1,0 +1,41 @@
+﻿@model IEnumerable<ExamenEduardoGuerrero.Controllers.CuadroController.CuadroTotal>
+
+@{
+    ViewBag.Title = "Ejercicio1";
+}
+
+<h2>Ejercicio1</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<form method="get">
+    <div align="center">
+        @Html.DropDownList("exposicionID", "Selecciona una exposicion")
+        <input type="submit" value="Buscar" />
+    </div>
+</form>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Titulo_Cuadro)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Titulo_Cuadro)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+            </td>
+        </tr>
+    }
+
+</table>

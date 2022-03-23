@@ -1,0 +1,5 @@
+<aura:event type="APPLICATION" description="Event template">
+    <aura:attribute type="Double" name="numero1"/>     
+    <aura:attribute type="Double" name="numero2"/>     
+    <aura:attribute type="String" name="operador"/>
+</aura:event>

@@ -1,0 +1,42 @@
+﻿@model IEnumerable<MVC02.Models.AsignaturaModel>
+
+@{
+    ViewBag.Title = "Listado";
+}
+
+<h2>Listado</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<form metod="get">
+    <table>
+        <tr>
+            <td>@Html.DropDownList("etapaID", null, htmlAttributes: new { @class = "form-control", onchange = "this.form.submit()" })</td>
+            <td>@Html.DropDownList("cursoID", null, htmlAttributes: new { @class = "form-control", onchange = "this.form.submit()" })</td>
+        </tr>
+    </table>
+</form>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nom_Asignatura)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nom_Asignatura)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>
